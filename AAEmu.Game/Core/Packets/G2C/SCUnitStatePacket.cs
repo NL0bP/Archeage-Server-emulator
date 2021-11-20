@@ -427,18 +427,18 @@ namespace AAEmu.Game.Core.Packets.G2C
             #region NetBuff
 
             // TODO: Fix the patron and auction house license buff issue
-            if (_unit is Character)
-            {
-                if (!_unit.Effects.CheckBuff(8000011)) //TODO Wrong place
-                {
-                    _unit.Effects.AddEffect(new Effect(_unit, _unit, SkillCaster.GetByType(EffectOriginType.Skill), SkillManager.Instance.GetBuffTemplate(8000011), null, System.DateTime.UtcNow));
-                }
+            //if (_unit is Character)
+            //{
+            //    if (!_unit.Effects.CheckBuff(8000011)) //TODO Wrong place
+            //    {
+            //        _unit.Effects.AddEffect(new Effect(_unit, _unit, SkillCaster.GetByType(EffectOriginType.Skill), SkillManager.Instance.GetBuffTemplate(8000011), null, System.DateTime.UtcNow));
+            //    }
 
-                if (!_unit.Effects.CheckBuff(8000012)) //TODO Wrong place
-                {
-                    _unit.Effects.AddEffect(new Effect(_unit, _unit, SkillCaster.GetByType(EffectOriginType.Skill), SkillManager.Instance.GetBuffTemplate(8000012), null, System.DateTime.UtcNow));
-                }
-            }
+            //    if (!_unit.Effects.CheckBuff(8000012)) //TODO Wrong place
+            //    {
+            //        _unit.Effects.AddEffect(new Effect(_unit, _unit, SkillCaster.GetByType(EffectOriginType.Skill), SkillManager.Instance.GetBuffTemplate(8000012), null, System.DateTime.UtcNow));
+            //    }
+            //}
 
             var goodBuffs = new List<Effect>();
             var badBuffs = new List<Effect>();

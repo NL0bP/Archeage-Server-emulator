@@ -14,7 +14,7 @@ namespace AAEmu.Game.Core.Packets.G2C
     {
         private readonly (uint id, UnitMovement type)[] _movements;
 
-        public SCUnitMovementsPacket((uint id, UnitMovement type)[] movements) : base(SCOffsets.SCUnitMovementsPacket, 5)
+        public SCUnitMovementsPacket((uint id, UnitMovement type)[] movements) : base(SCOffsets.SCUnitMovementsPacket, 1)
         {
             _movements = movements;
         }

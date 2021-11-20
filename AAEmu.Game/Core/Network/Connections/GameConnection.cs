@@ -35,7 +35,7 @@ namespace AAEmu.Game.Core.Network.Connections
         public Character ActiveChar { get; set; }
         public readonly Dictionary<uint, Character> Characters;
         public Dictionary<uint, House> Houses;
-
+        public object Lock { get; set; }
         public Task LeaveTask { get; set; }
         public DateTime LastPing { get; set; }
         public ulong LastWhen { get; set; }
@@ -48,6 +48,7 @@ namespace AAEmu.Game.Core.Network.Connections
             Characters = new Dictionary<uint, Character>();
             Houses = new Dictionary<uint, House>();
             Payment = new AccountPayment(this);
+            Lock = new object();
             // AddAttribute("gmFlag", true);
         }
 
