@@ -52,12 +52,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="DotNet.Config">
-      <HintPath>DotNet.Config.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Scripts\Commands\Kick.cs">
       <LinkBase>$([MSBuild]::EnsureTrailingSlash(%(LinkBase)))</LinkBase>
     </None>
