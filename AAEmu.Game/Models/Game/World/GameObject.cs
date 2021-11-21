@@ -154,5 +154,10 @@ namespace AAEmu.Game.Models.Game.World
         public virtual void RemoveVisibleObject(Character character)
         {
         }
+    
+        public virtual string DebugName()
+        {
+            return "(" + ObjId.ToString() + ") - " + ToString();
+        }
     }
 }

@@ -98,5 +98,12 @@ namespace AAEmu.Game.Models.Game.Units
                     return SkillTargetRelation.Others;
             }
         }
+
+        public override string DebugName()
+        {
+            if (string.IsNullOrWhiteSpace(Name))
+                return base.DebugName();
+            return "(" + ObjId.ToString() + ") - " + Name;
+        }
     }
 }

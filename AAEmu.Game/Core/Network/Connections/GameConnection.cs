@@ -36,6 +36,7 @@ namespace AAEmu.Game.Core.Network.Connections
         public readonly Dictionary<uint, Character> Characters;
         public Dictionary<uint, House> Houses;
         public object Lock { get; set; }
+        public byte LastCount { get; set; }
         public Task LeaveTask { get; set; }
         public DateTime LastPing { get; set; }
         public ulong LastWhen { get; set; }

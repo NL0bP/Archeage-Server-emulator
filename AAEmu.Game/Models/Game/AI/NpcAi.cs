@@ -101,36 +101,36 @@ namespace AAEmu.Game.Models.Game.AI
                                 moveType.Time += 50;
                                 chr.BroadcastPacket(new SCOneUnitMovementPacket(npc.ObjId, moveType), true);
                             }
-                            //else if (npc.Template.AiFileId == AiFilesType.Roaming ||
-                            //         npc.Template.AiFileId == AiFilesType.BigMonsterRoaming ||
-                            //         npc.Template.AiFileId == AiFilesType.ArcherRoaming ||
-                            //         npc.Template.AiFileId == AiFilesType.WildBoarRoaming
-                            //         || npc.TemplateId == 4200
-                            //         )
-                            //{
-                            //    // Npc roams around the spawn point in random directions
-                            //    if (npc.CurrentTarget != null)
-                            //    {
-                            //        chr.BroadcastPacket(new SCTargetChangedPacket(npc.ObjId, 0), true);
-                            //        npc.CurrentTarget = null;
-                            //    }
+                            else if (npc.Template.AiFileId == AiFilesType.Roaming ||
+                                     npc.Template.AiFileId == AiFilesType.BigMonsterRoaming ||
+                                     npc.Template.AiFileId == AiFilesType.ArcherRoaming ||
+                                     npc.Template.AiFileId == AiFilesType.WildBoarRoaming
+                                     || npc.TemplateId == 4200
+                                     )
+                            {
+                                // Npc roams around the spawn point in random directions
+                                if (npc.CurrentTarget != null)
+                                {
+                                    chr.BroadcastPacket(new SCTargetChangedPacket(npc.ObjId, 0), true);
+                                    npc.CurrentTarget = null;
+                                }
 
-                            //    if (npc.Patrol == null)
-                            //    {
-                            //        npc.IsInBattle = false;
-                            //        npc.Patrol = new Roaming { Interrupt = true, Loop = true, Abandon = false };
-                            //        npc.Patrol.Interrupt = true; // можно прервать
-                            //        npc.Patrol.Loop = true;      // повторять в цикле
-                            //        npc.Patrol.Abandon = false;  // не прерванный
-                            //        npc.Patrol.Pause(npc);
-                            //        npc.Patrol.LastPatrol = null; // предыдущего патруля нет
-                            //        npc.Patrol.Recovery(npc);     // запустим патруль
-                            //    }
-                            //    else
-                            //    {
-                            //        npc.Patrol.Recovery(npc);
-                            //    }
-                            //}
+                                if (npc.Patrol == null)
+                                {
+                                    npc.IsInBattle = false;
+                                    npc.Patrol = new Roaming { Interrupt = true, Loop = true, Abandon = false };
+                                    npc.Patrol.Interrupt = true; // можно прервать
+                                    npc.Patrol.Loop = true;      // повторять в цикле
+                                    npc.Patrol.Abandon = false;  // не прерванный
+                                    npc.Patrol.Pause(npc);
+                                    npc.Patrol.LastPatrol = null; // предыдущего патруля нет
+                                    npc.Patrol.Recovery(npc);     // запустим патруль
+                                }
+                                else
+                                {
+                                    npc.Patrol.Recovery(npc);
+                                }
+                            }
                         }
                     }
 

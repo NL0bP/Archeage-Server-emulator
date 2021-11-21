@@ -734,5 +734,10 @@ namespace AAEmu.Game.Core.Packets.G2C
 
             #endregion Inventory_Equip
         }
+
+        public override string Verbose()
+        {
+            return " - " + _baseUnitType.ToString() + " - " + _unit?.DebugName();
+        }
     }
 }

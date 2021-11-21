@@ -28,9 +28,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Game\Models\**" />
     <Compile Remove="Scripts\**\**" />
     <None Include="Scripts\**\**" CopyToOutputDirectory="PreserveNewest" LinkBase="Scripts\" />
     <None Include="Data\**\**" CopyToOutputDirectory="PreserveNewest" LinkBase="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Models\Game\Models\**" />
+    <None Remove="Models\Game\Models\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -100,10 +106,6 @@
     <None Update="Scripts\Commands\TestEcho.cs">
       <LinkBase>$([MSBuild]::EnsureTrailingSlash(%(LinkBase)))</LinkBase>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Game\Models\" />
   </ItemGroup>
 
 </Project>

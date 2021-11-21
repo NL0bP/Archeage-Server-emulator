@@ -24,7 +24,7 @@ namespace AAEmu.Game.Core.Packets.G2C
 
             // ---- test Ai ----
             var unit = WorldManager.Instance.GetUnit(id);
-            if (unit is not Npc && unit is not Transfer && unit is not Gimmick) { return; }
+            //if (unit is not Npc && unit is not Transfer && unit is not Gimmick) { return; }
 
             var movementAction = new MovementAction(
                 new Point(type.X, type.Y, type.Z, Helpers.ConvertRadianToSbyteDirection(type.Rot.X), Helpers.ConvertRadianToSbyteDirection(type.Rot.Y), Helpers.ConvertRadianToSbyteDirection(type.Rot.Z)),
