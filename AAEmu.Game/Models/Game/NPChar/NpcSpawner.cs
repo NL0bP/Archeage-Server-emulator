@@ -48,7 +48,6 @@ namespace AAEmu.Game.Models.Game.NPChar
             return list;
         }
 
-
         public override Npc Spawn(uint objId)
         {
             var npc = NpcManager.Instance.Create(objId, UnitId);
@@ -124,7 +123,6 @@ namespace AAEmu.Game.Models.Game.NPChar
                         go = false;
                     }
                 }
-                //if (path.Routes2.Count != 0)
                 if (go)
                 {
                     path.LoadNpcPathFromNpcsRoutes(npc.TemplateId); // начнем с самого начала
@@ -161,19 +159,6 @@ namespace AAEmu.Game.Models.Game.NPChar
                     npc.SimulationNpc.FollowPath = true;
                     break;
                 }
-
-                //if (go)
-                //{
-                //    path.LoadPath(""); // считываем путь из файла
-                //    npc.IsInPatrol = true; // so as not to run the route a second time
-                //    path.GoToPath(npc, true);
-                //    //npc.SimulationNpc = path;
-                //    //npc.SimulationNpc.FollowPath = true;
-                //}
-                //else
-                //{
-                //    _log.Warn("No path found for Npc: " + npc.TemplateId + " ...");
-                //}
             }
             
             npc.Spawn();

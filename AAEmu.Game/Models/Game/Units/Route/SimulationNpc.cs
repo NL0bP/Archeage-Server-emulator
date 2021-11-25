@@ -659,9 +659,17 @@ namespace AAEmu.Game.Models.Game.Units.Route
                 moveType.Rot = new Quaternion(0f, 0f, Helpers.ConvertDirectionToRadian(_rotZ), 1f);
 
                 npc.Rot = moveType.Rot;
-                moveType.DeltaMovement = new Vector3(0, 0.5f, 0);
-                moveType.Flags = 4;
-                moveType.actorFlags = ActorMoveType.Walk; // 5-walk, 4-run, 3-stand still
+                if (RunningMode)
+                {
+                    moveType.actorFlags = ActorMoveType.Run; // 5-walk, 4-run, 3-stand still
+                    moveType.DeltaMovement = new Vector3(0, 1f, 0);
+                }
+                else
+                {
+                    moveType.actorFlags = ActorMoveType.Walk; // 5-walk, 4-run, 3-stand still
+                    moveType.DeltaMovement = new Vector3(0, 0.5f, 0);
+                }
+
                 moveType.Stance = EStance.Idle;           // COMBAT = 0x0, IDLE = 0x1
                 moveType.Alertness = AiAlertness.Idle;    // IDLE = 0x0, ALERT = 0x1, COMBAT = 0x2
                 moveType.Time += 100;                     // has to change all the time for normal motion
@@ -675,8 +683,6 @@ namespace AAEmu.Game.Models.Game.Units.Route
                 else
                 {
                     InPatrol = false;
-                    //once = false;
-
                     // get next path or point # in current path
                     OnMove2(npc);
                 }
@@ -1050,11 +1056,6 @@ namespace AAEmu.Game.Models.Game.Units.Route
                     _log.Warn("x=" + s.X + " y=" + s.Y + " z=" + s.Z + " rotZ=" + s.RotationZ);
 
                     pp = s; // передаем инфу по точке для движения транспорта
-                    //if (!PosInRange(npc, _vPosition.X, _vPosition.Y, 30))
-                    //{
-                    //    RepeatMove(this, npc, _vPosition.X, _vPosition.Y, _vPosition.Z, pp);
-                    //    return;
-                    //}
 
                     if (MoveToForward)
                     {
