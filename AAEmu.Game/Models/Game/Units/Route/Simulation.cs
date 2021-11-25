@@ -119,7 +119,6 @@ namespace AAEmu.Game.Models.Game.Units.Route
                 _velAccel = velAcceleration; //per s
                 _maxVelocityForward = velocityForward; // 9.6f;
                 _maxVelocityBackward = velocityBackward;
-                _velAccel = velAcceleration;
                 _angVel = angVelocity;
                 Steering = 0;
                 //var linInertia = 0.3f;    //per s   // TODO Move to the upper motion control module

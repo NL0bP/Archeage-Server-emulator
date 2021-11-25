@@ -33,6 +33,7 @@ namespace AAEmu.Game.Core.Packets.G2C
                 3,
                 UnitMovementType.Actor
             );
+            if (unit == null) { return; }
             unit.VisibleAi.OwnerMoved(movementAction);
             // ---- test Ai ----
         }

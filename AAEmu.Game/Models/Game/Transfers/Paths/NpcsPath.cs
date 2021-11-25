@@ -50,8 +50,7 @@ namespace AAEmu.Game.Models.Game.Transfers.Paths
                 }
                 else
                 {
-                    throw new Exception(
-                        $"SpawnManager: Parse {FileManager.AppPath}Data/Worlds/main_world/npc_paths.json file");
+                    throw new Exception($"SpawnManager: Parse {FileManager.AppPath}Data/Worlds/main_world/npc_paths.json file");
                 }
             }
         }
@@ -323,5 +322,16 @@ namespace AAEmu.Game.Models.Game.Transfers.Paths
         {
             return Comparer<NpcsPath>.Default.Compare(left, right) >= 0;
         }
+    }
+    public class NpcMoveList
+    {
+        public uint objId;
+        public uint templateId;
+    }
+    public class NpcMovePathList
+    {
+        public uint objId;
+        public uint templateId;
+        public string path;
     }
 }

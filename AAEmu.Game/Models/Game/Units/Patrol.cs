@@ -55,7 +55,7 @@ namespace AAEmu.Game.Models.Game.Units
         public Vector3 vPausePosition { get; set; }
         public Vector3 vTarget { get; set; }
         public Vector3 vDistance { get; set; }
-        public float RangeToCheckPoint { get; set; } = 0.25f; // distance to checkpoint at which it is considered that we have reached it
+        public float RangeToCheckPoint { get; set; } = 0.5f; // distance to checkpoint at which it is considered that we have reached it
         public Vector3 vRangeToCheckPoint { get; set; } = new Vector3(0.5f, 0.5f, 0f); // distance to checkpoint at which it is considered that we have reached it
         public bool FollowPath { get; set; } = false;
 

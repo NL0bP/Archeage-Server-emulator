@@ -195,7 +195,7 @@ namespace AAEmu.Game.Core.Packets.G2C
                 if (_unit is Npc npc)
                 {
                     // TODO UnitModelPosture
-                    if (npc.Faction.Id != 115 || npc.Faction.Id != 3) // npc.Faction.GuardHelp не агрессивные мобы
+                    if (npc.Faction.Id != 115 || npc.Faction.Id != 3 || !npc.IsInPatrol) // npc.Faction.GuardHelp не агрессивные мобы
                     {
                         stream.Write((byte)_unitModelPostureType); // type // оставим это для того, чтобы NPC могли заниматься своими делами
                     }

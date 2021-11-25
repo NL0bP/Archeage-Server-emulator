@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 using AAEmu.Game.Core.Managers;
@@ -30,6 +31,9 @@ namespace AAEmu.Game.Models.Game.NPChar
         public Quaternion Rot { get; set; }
         public Vector3 Vel { get; set; }
         public Vector3 AngVel { get; set; }
+        public float Speed { get; set; }
+        public Vector3 Velocity { get; set; }
+        public DateTime SpawnTime { get; set; }
 
         #region Attributes
 

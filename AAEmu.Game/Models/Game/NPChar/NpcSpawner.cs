@@ -72,21 +72,25 @@ namespace AAEmu.Game.Models.Game.NPChar
             }
 
             // кому разрешено бродить по пути-дороге
-            var npcMove = new List<uint>
-            {
-                11999, // Forest Keeper Arthur
-                12143, // Woodcutter Solace
-                //8172,
-                //8176,
-                //3576,
-                //3626,
-                //7660,
-                //12143,
-                //4499,
-                //3591,
-                //3576,
-                //3626,
-            };
+            var npcMove = new List<NpcMoveList>();
+            npcMove.Add(new NpcMoveList() { objId = 8271, templateId = 11999 }); // Forest Keeper Arthur
+            npcMove.Add(new NpcMoveList() { objId = 8281, templateId = 12143 }); // Woodcutter Solace
+            npcMove.Add(new NpcMoveList() { objId = 6165, templateId = 7035 }); // Weeding Soldier
+            npcMove.Add(new NpcMoveList() { objId = 8124, templateId = 8172 });
+
+            var npcMove2 = new List<NpcMovePathList>();
+            npcMove2.Add(new NpcMovePathList() { objId = 8156, templateId = 8176, path = "guard3" }); // на площади, ходит вокруг фонтана
+            npcMove2.Add(new NpcMovePathList() { objId = 8162, templateId = 8176, path = "guard1" }); // ходит по дороге
+            npcMove2.Add(new NpcMovePathList() { objId = 8155, templateId = 8176, path = "guard2" }); // ходит по дороге
+
+            // TODO добавить пути для Npc
+            //8172,
+            //3576,
+            //3626,
+            //7660,
+            //4499,
+            //3591,
+            //3626,
 
             // использование путей из логов с помощью файла npc_paths.json
             if (!npc.IsInPatrol)
@@ -96,10 +100,10 @@ namespace AAEmu.Game.Models.Game.NPChar
                 foreach (var nm in npcMove)
                 {
                     // организуем последовательность "Дорог" для следования "Гвардов" и других Npc
-                    if (npc.TemplateId != nm) { continue; }
+                    if (npc.TemplateId != nm.templateId || npc.ObjId != nm.objId) { continue; }
 
                     var lnpp = new List<NpcsPathPoint>();
-                    foreach (var np in NpcsPath.NpcsPaths.Where(np => np.Type == nm && !s_inUse.ContainsKey(np.ObjId)))
+                    foreach (var np in NpcsPath.NpcsPaths.Where(np => np.ObjId == nm.objId && !s_inUse.ContainsKey(np.ObjId)))
                     {
                         lnpp.AddRange(np.Pos);
                         path.NpcsRoutes.TryAdd(npc.TemplateId, lnpp);
@@ -115,7 +119,7 @@ namespace AAEmu.Game.Models.Game.NPChar
                 }
                 else
                 {
-                    if (path.NpcsRoutes.Any(route => route.Value.Count < 5)) // TODO == 0
+                    if (path.NpcsRoutes.Any(route => route.Value.Count < 2)) // TODO == 0
                     {
                         go = false;
                     }
@@ -124,8 +128,8 @@ namespace AAEmu.Game.Models.Game.NPChar
                 if (go)
                 {
                     path.LoadNpcPathFromNpcsRoutes(npc.TemplateId); // начнем с самого начала
-                    //_log.Warn("TransfersPath #" + transfer.TemplateId);
-                    //_log.Warn("First spawn myX=" + transfer.Position.X + " myY=" + transfer.Position.Y + " myZ=" + transfer.Position.Z + " rotZ=" + transfer.Rot.Z + " rotationZ=" + transfer.Position.RotationZ);
+                                                                    //_log.Warn("TransfersPath #" + transfer.TemplateId);
+                                                                    //_log.Warn("First spawn myX=" + transfer.Position.X + " myY=" + transfer.Position.Y + " myZ=" + transfer.Position.Z + " rotZ=" + transfer.Rot.Z + " rotationZ=" + transfer.Position.RotationZ);
                     npc.IsInPatrol = true; // so as not to run the route a second time
 
                     //path.GoToPath(npc, true);
@@ -138,6 +142,40 @@ namespace AAEmu.Game.Models.Game.NPChar
                 }
             }
 
+            // использование путей из папки Path
+            if (!npc.IsInPatrol)
+            {
+                var path = new SimulationNpc(npc);
+                //var go = true;
+                foreach (var nm in npcMove2)
+                {
+                    // организуем последовательность "Дорог" для следования "Гвардов" и других Npc
+                    if (npc.TemplateId != nm.templateId || npc.ObjId != nm.objId) { continue; }
+
+                    // считываем путь из файла
+                    path.MoveFileName = nm.path;
+                    path.ReadPath();
+                    npc.IsInPatrol = true; // so as not to run the route a second time
+                    //path.GoToPath(npc, true);
+                    npc.SimulationNpc = path;
+                    npc.SimulationNpc.FollowPath = true;
+                    break;
+                }
+
+                //if (go)
+                //{
+                //    path.LoadPath(""); // считываем путь из файла
+                //    npc.IsInPatrol = true; // so as not to run the route a second time
+                //    path.GoToPath(npc, true);
+                //    //npc.SimulationNpc = path;
+                //    //npc.SimulationNpc.FollowPath = true;
+                //}
+                //else
+                //{
+                //    _log.Warn("No path found for Npc: " + npc.TemplateId + " ...");
+                //}
+            }
+            
             npc.Spawn();
             _lastSpawn = npc;
             _spawned.Add(npc);
