@@ -917,7 +917,8 @@ namespace AAEmu.Game.Models.Game.Units.Route
                     var flagType = flag & 15;
                     var skillObject = SkillObject.GetByType((SkillObjectType)flagType);
                     useSkill.Use(npc, casterType, targetType, skillObject);
-                    time = useSkill.Template.CastingTime + useSkill.Template.CooldownTime;
+                    if (useSkill.Template.CastingTime != 0 && useSkill.Template.CooldownTime != 0)
+                        time = useSkill.Template.CastingTime + useSkill.Template.CooldownTime;
                 }
 
                 TaskManager.Instance.Schedule(new MoveNpc(sim ?? this, npc, targetX, targetY, targetZ, pp), TimeSpan.FromMilliseconds(time));
