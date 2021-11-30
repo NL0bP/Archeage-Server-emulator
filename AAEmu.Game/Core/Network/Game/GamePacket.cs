@@ -27,7 +27,7 @@ namespace AAEmu.Game.Core.Network.Game
         // отправляем шифрованные пакеты от сервера
         public override PacketStream Encode()
         {
-            lock (Connection.Lock)
+            lock (Connection.WriteLock)
             {
                 byte count = 0;
                 var ps = new PacketStream();
@@ -131,35 +131,37 @@ namespace AAEmu.Game.Core.Network.Game
 
         public override PacketBase<GameConnection> Decode(PacketStream ps)
         {
-            // CS here you can set the filter to hide packets
-            if (
+            lock (Connection.ReadLock)
+            {
+                // CS here you can set the filter to hide packets
+                if (
                 !(TypeId == 0x12 && Level == 2) // PingPacket
                 && !(TypeId == 0x15 && Level == 2) // FastPingPacket
                 && !(TypeId == CSOffsets.CSMoveUnitPacket && Level == 5)
                )
-            {
-                //_log.Debug("GamePacket: C->S type {0:X} {2}\n{1}", TypeId, ps, this.ToString().Substring(23));
-                //_log.Trace("GamePacket: C->S type {0:X3} {1}", TypeId, this.ToString().Substring(23));
-                _log.Debug("GamePacket: C->S type {0:X3} {1}", TypeId, ToString()?.Substring(23));
-            }
+                {
+                    //_log.Debug("GamePacket: C->S type {0:X} {2}\n{1}", TypeId, ps, this.ToString().Substring(23));
+                    //_log.Trace("GamePacket: C->S type {0:X3} {1}", TypeId, this.ToString().Substring(23));
+                    _log.Debug("GamePacket: C->S type {0:X3} {1}", TypeId, ToString()?.Substring(23));
+                }
 
-            if (TypeId == 0xFFF)
-            {
-                _log.Error("UNKNOWN OPCODE FOR PACKET");
-                _log.Debug("GamePacket: S->C type {0:X3} {1}", TypeId, ToString().Substring(23));
-                throw new SystemException();
+                if (TypeId == 0xFFF)
+                {
+                    _log.Error("UNKNOWN OPCODE FOR PACKET");
+                    _log.Debug("GamePacket: S->C type {0:X3} {1}", TypeId, ToString().Substring(23));
+                    throw new SystemException();
+                }
+                try
+                {
+                    Read(ps);
+                    Execute();
+                }
+                catch (Exception ex)
+                {
+                    _log.Fatal(ex);
+                    throw;
+                }
             }
-            try
-            {
-                Read(ps);
-                Execute();
-            }
-            catch (Exception ex)
-            {
-                _log.Fatal(ex);
-                throw;
-            }
-
             return this;
         }
     }

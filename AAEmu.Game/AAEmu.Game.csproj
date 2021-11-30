@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-    <RuntimeIdentifiers>win7-x64;win7-x86;win8-x64;win8-x86;win81-x64;win81-x86;win10-x64;win10-x86;centos.7-x64;debian.9-x64;ubuntu.18.04-x64;sles-x64;sles.12-x64;sles.12.1-x64;sles.12.2-x64;sles.12.3-x64;alpine-x64;alpine.3.7-x64</RuntimeIdentifiers>
+        <TargetFramework>net6.0</TargetFramework>
+        <RuntimeIdentifiers>win7-x64;win7-x86;win8-x64;win8-x86;win81-x64;win81-x86;win10-x64;win10-x86;centos.7-x64;debian.9-x64;ubuntu.18.04-x64;sles-x64;sles.12-x64;sles.12.1-x64;sles.12.2-x64;sles.12.3-x64;alpine-x64;alpine.3.7-x64</RuntimeIdentifiers>
     <VersionPrefix>3.0.3.0</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>9.0</LangVersion>
-  </PropertyGroup>
+        <LangVersion>10</LangVersion>
+      </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AAEmu.Commons\AAEmu.Commons.csproj" />
@@ -43,18 +43,18 @@
     <PackageReference Include="Ionic.Zlib" Version="1.9.1.5" />
     <PackageReference Include="Jace" Version="1.0.0" />
     <PackageReference Include="JitterPhysics" Version="0.2.0.20" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.9.0-4.final" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.0-preview.1.21102.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0-preview.1.21102.12" />
-    <PackageReference Include="NLog" Version="4.7.7" />
-    <PackageReference Include="NLua" Version="1.5.7" />
-    <PackageReference Include="Quartz" Version="3.2.4" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.1.0-1.final" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="NLog" Version="5.0.0-preview.3" />
+    <PackageReference Include="NLua" Version="1.6.0" />
+    <PackageReference Include="Quartz" Version="3.3.3" />
   </ItemGroup>
 
   <ItemGroup>
