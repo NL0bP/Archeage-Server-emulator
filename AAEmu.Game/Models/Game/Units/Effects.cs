@@ -62,7 +62,7 @@ namespace AAEmu.Game.Models.Game.Units
             var temp = new List<Effect>();
             foreach (var effect in new List<Effect>(_effects))
             {
-                if (effect.Template.GetType() == effectType)
+                if (effect != null && effect.Template.GetType() == effectType)
                 {
                     temp.Add(effect);
                 }
@@ -75,7 +75,7 @@ namespace AAEmu.Game.Models.Game.Units
         {
             foreach (var effect in new List<Effect>(_effects))
             {
-                if (effect.Index == index)
+                if (effect != null && effect.Index == index)
                 {
                     return effect;
                 }
@@ -120,7 +120,7 @@ namespace AAEmu.Game.Models.Game.Units
             var count = 0;
             foreach (var effect in new List<Effect>(_effects))
             {
-                if (effect.Template.BuffId == buffId)
+                if (effect != null && effect.Template.BuffId == buffId)
                 {
                     count++;
                 }
