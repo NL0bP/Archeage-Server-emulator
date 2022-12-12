@@ -1,7 +1,10 @@
+# ![AAEmu](https://i.imgur.com/NFDY376.png)
+
+![Discord](https://img.shields.io/discord/479677351618281472?color=%235865F2&label=Discord&logo=Discord&logoColor=%23FFFFFF")
+
 ArcheAge (kor. 아키에이지 — "Ancient times"; ch. 上古世紀) — client fantasy massively multiplayer online role-playing game (MMORPG) for the PC, developed by Korean company XLGames. The game is set in the universe of ArcheAge — fantasy world with elements of medieval magic and steampunk.
 
-Our project is mainly focused on version 3.0.3.0.
-
+Our project is mainly focused on version 3.0.3.0 [For the latest changes to the project, see here.](https://github.com/NL0bP/AAEmu/tree/client_version/3.0_client_(2017-03-15))
 # ![AAEmu](https://i.gyazo.com/b5d37dad118d5c897dcdc0b46005a156.gif)
 
 __Open source server software for ArcheAge written in .Net Core__
@@ -32,7 +35,7 @@ Yes you can! Contributions are welcomed provided that they comply with our [Cont
 	You should have received a copy of the GNU Lesser General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-atel0/AAEmu are not affiliated with XLGames. All brands and trademarks belong to their respective owners. AAEmu is not a XLGames-approved software, nor is it associated with XLGames.
+AAEmu/AAEmu are not affiliated with XLGames. All brands and trademarks belong to their respective owners. AAEmu is not a XLGames-approved software, nor is it associated with XLGames.
 
 Now you can create characters.
 Now you can enter the world.
