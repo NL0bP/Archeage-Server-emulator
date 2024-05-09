@@ -35,4 +35,4 @@ atel0/AAEmu are not affiliated with XLGames. All brands and trademarks belong to
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=AAEmu/AAEmu,NL0bP/AAEmu&type=Timeline)](https://star-history.com/#AAEmu/AAEmu&NL0bP/AAEmu&Timeline)
+[![Star History Chart](https://api.star-history.com/svg?repos=AAEmu/AAEmu,NL0bP/AAEmu,NL0bP/Archeage-Server-emulator&type=Date)](https://star-history.com/#AAEmu/AAEmu&NL0bP/AAEmu&NL0bP/Archeage-Server-emulator&Date)
