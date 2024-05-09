@@ -11,7 +11,7 @@ If you don't find what you're looking for there, [talk to a human](#discussion).
 
 ### Discussion
 - [Community Discord](https://discord.gg/vn8E8E6)
-- [FAQ](https://github.com/atel0/AAEmu/wiki/FAQ)
+- [FAQ](https://github.com/NL0bP/Archeage-Server-emulator/wiki/FAQ)
 
 ### Can I contribute?
 Yes you can! Contributions are welcomed provided that they comply with our [Contributing Guidelines](CONTRIBUTING.md). Please ensure you read the relevant sections of the guidelines carefully before making a Pull Request or opening an Issue.
