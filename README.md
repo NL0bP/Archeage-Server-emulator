@@ -3,6 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/AAEmu/AAEmu/badge.svg?branch=develop)](https://coveralls.io/github/AAEmu/AAEmu?branch=develop)
 ![Discord](https://img.shields.io/discord/479677351618281472?color=%235865F2&label=Discord&logo=Discord&logoColor=%23FFFFFF")
 
+### [Support my hobby and help me create longer!](https://boosty.to/aaemu)
+
 __Open source server software for ArcheAge written in .Net Core__
 
 ### Setup, help & support, FAQs
